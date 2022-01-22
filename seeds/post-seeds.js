@@ -39,54 +39,54 @@ const postdata = [
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2016,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:2
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2020,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:3
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2018,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:3
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2019,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:4
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2020,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:4
     },
     {
         wine_name: '', 
-        wine_vintage: '',
+        wine_vintage: 2017,
         wine_type: '', 
-        wine_source: '',
+        wine_source: 'Wine Insiders',
         notes: '', 
         img_url: '', 
         user_id:5

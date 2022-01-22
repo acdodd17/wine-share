@@ -20,7 +20,7 @@ Post.init(
         allowNull: false
       },
       wine_vintage: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         validate: {
             len: [4]
         }
