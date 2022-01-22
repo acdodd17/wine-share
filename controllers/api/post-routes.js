@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img_url'
+        'img_url',
+        'notes'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -49,7 +50,8 @@ router.get('/', (req, res) => {
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img_url'
+        'img_url',
+        'notes'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -83,11 +85,11 @@ router.get('/', (req, res) => {
 // Post a Wine 
 router.post('/', withAuth, (req, res) => {
     Post.create({
-      wine_name: req.body.name,
+      wine_name: req.body.wine_name,
       wine_vintage: req.body.wine_vintage,
       wine_source: req.body.wine_source,
       type: req.body.type,
-      img_url: req.body.img,
+      img_url: req.body.img_url,
       user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
