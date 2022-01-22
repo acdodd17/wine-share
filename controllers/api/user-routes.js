@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['id', 'name', 'wine_vintage', 'wine_source', 'wine_type', 'img', 'user_id']
+          attributes: ['id', 'wine_name', 'wine_vintage', 'wine_source', 'wine_type', 'img_url', 'user_id']
         },
         {
           model: Comment,
@@ -159,4 +159,3 @@ router.delete('/:id', (req, res) => {
   
   module.exports = router;
 
-  

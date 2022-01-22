@@ -7,11 +7,11 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'name',
+        'wine_name',
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img'
+        'img_url'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -59,11 +59,11 @@ router.get('/:id', (req, res) => {
       },
       attributes: [
         'id',
-        'name',
+        'wine_name',
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img'
+        'img_url'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [

@@ -8,11 +8,11 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'name',
+        'wine_name',
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img'
+        'img_url'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -45,11 +45,11 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'name',
+        'wine_name',
         'wine_vintage',
         'wine_source',
         'wine_type',
-        'img'
+        'img_url'
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -83,11 +83,11 @@ router.get('/', (req, res) => {
 // Post a Wine 
 router.post('/', withAuth, (req, res) => {
     Post.create({
-      name: req.body.name,
+      wine_name: req.body.name,
       wine_vintage: req.body.wine_vintage,
       wine_source: req.body.wine_source,
       type: req.body.type,
-      img: req.body.img,
+      img_url: req.body.img,
       user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
@@ -131,4 +131,3 @@ router.delete('/:id', (req, res) => {
   
   module.exports = router;
 
-  
