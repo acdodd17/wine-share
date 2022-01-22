@@ -19,7 +19,7 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      Wine_vintage: {
+      wine_vintage: {
         type: DataTypes.NUMBER,
         validate: {
             len: [4]
@@ -31,6 +31,9 @@ Post.init(
       wine_type: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      notes: {
+        type: DataTypes.TEXT
       },
       img_url: {
         type: DataTypes.STRING,
