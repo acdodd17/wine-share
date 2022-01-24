@@ -11,11 +11,10 @@ router.get('/', (req, res) => {
   })
   .then(dbUserData => {
     const users = dbUserData.map(user => user.get({ plain: true }));
-    res.render('homepage', { users });
+    res.render('homepage', { users, loggedIn: req.session.loggedIn  });
   })
   
 });
-
 
 
 // Login homepage

@@ -25,20 +25,6 @@ router.get('/:id', (req, res) => {
           model: Post,
           attributes: ['id', 'wine_name', 'wine_vintage', 'wine_source', 'wine_type', 'img_url', 'user_id']
         }
-        // {
-        //   model: Comment,
-        //   attributes: ['id', 'wine_id', 'comment_text', 'user_id', 'created_at'],
-        //   include: {
-        //     model: Post,
-        //     attributes: ['title']
-        //   }
-        // },
-        // {
-        //   model: Post,
-        //   attributes: ['title'],
-        //   through: Vote,
-        //   as: 'voted_posts'
-        // }
       ]
     })
       .then(dbUserData => {
@@ -54,8 +40,8 @@ router.get('/:id', (req, res) => {
       });
   });
 
-  //Post Users
-  router.post('/signup', (req, res) => {
+//Creat new user
+router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
       email: req.body.email,
