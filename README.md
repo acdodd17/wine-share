@@ -1,10 +1,13 @@
 # Wine Share
 
-## Wine Share App
+## About Our Product
+
+
+## Purpose
 
 
 ## Screenshots
-![Screenshot #1](https://github.com/ebeltz/github-professional-readme-generator/blob/main/Develop/assets/screenshot1.png)
+![Screenshot #1](https://github.com/acdodd17/wine-share/blob/main/public/images/screenshot1.png)
 
 ## Built With
 * Node.js
@@ -12,8 +15,10 @@
 * Handlebars
 * Firebase
 * Express
+* CSS
+* MySQL
 
-## Website Link
+## Website
 
-## Creation
+## Contribution
 Wine Share created by Anna D, Alvin Y, and Elizabeth B
