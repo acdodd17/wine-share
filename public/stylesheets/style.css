@@ -1,15 +1,48 @@
-header {
-    background-color: maroon;
+
+body {
+    /* background-image: url('../images/cellar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    font-family: 'Tenali Ramakrishna', sans-serif;
+}
+
+.title {
+    font-family: 'Meddon', cursive;
 }
 
 a {
     color: white;
+    text-decoration: none;
+    
 }
 
+a:hover { 
+    color: #A7E7E0;
+}
 
-.homepage-image {
-    background-image: url("../images/wine-cellar.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 80%;
+.header {
+    background-color: #58181F;
+}
+
+main {
+    background-color: white;
+}
+
+.card {
+    width: 300px;
+}
+.card-body {
+    background-color: #185851;
+    color: white;
+    font-weight: bold;
+}
+
+footer {
+    color: white;
+    background-color: #58181F;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
 }
