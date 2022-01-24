@@ -20,7 +20,7 @@ const postdata = [
         user_id:1
     },
     {
-        wine_name: 'Fog Harbor Red Blen', 
+        wine_name: 'Fog Harbor Red Blend', 
         wine_vintage: 2018,
         wine_type: 'Red', 
         wine_source: 'Wine Insiders',

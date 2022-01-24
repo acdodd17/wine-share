@@ -29,12 +29,42 @@ main {
 }
 
 .card {
-    width: 300px;
+    width: 75%;
 }
+
 .card-body {
     background-color: #185851;
     color: white;
+}
+
+.card-title {
     font-weight: bold;
+}
+
+label {
+    font-size: 24px;
+}
+
+button {
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 100px
+}
+
+button:hover {
+    background-color: #A7E7E0;
+}
+
+input {
+    width: 15rem;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.push {
+    height: 50px;
 }
 
 footer {
@@ -44,5 +74,5 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-
+    margin-top: 5px;
 }
