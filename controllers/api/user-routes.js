@@ -1,6 +1,5 @@
 const router = require('express').Router(); 
-const { user, Post, Comment, Vote } = require('../../models'); 
-const withAuth = require('../../utils/auth');
+const { User, Post } = require('../../models'); 
 
 // Get all Users 
 router.get('/', (req, res) => {
@@ -25,21 +24,21 @@ router.get('/:id', (req, res) => {
         {
           model: Post,
           attributes: ['id', 'wine_name', 'wine_vintage', 'wine_source', 'wine_type', 'img_url', 'user_id']
-        },
-        {
-          model: Comment,
-          attributes: ['id', 'wine_id', 'comment_text', 'user_id', 'created_at'],
-          include: {
-            model: Post,
-            attributes: ['title']
-          }
-        },
-        {
-          model: Post,
-          attributes: ['title'],
-          through: Vote,
-          as: 'voted_posts'
         }
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'wine_id', 'comment_text', 'user_id', 'created_at'],
+        //   include: {
+        //     model: Post,
+        //     attributes: ['title']
+        //   }
+        // },
+        // {
+        //   model: Post,
+        //   attributes: ['title'],
+        //   through: Vote,
+        //   as: 'voted_posts'
+        // }
       ]
     })
       .then(dbUserData => {
@@ -74,7 +73,6 @@ router.get('/:id', (req, res) => {
 });
 
 // Login 
- // expects {email: 'lernantino@gmail.com', password: 'password1234'}
 router.post('/login', (req, res) => {
     User.findOne({
       where: {
@@ -116,7 +114,6 @@ router.post('/logout', (req, res) => {
   });
 
 // Update Users 
-// expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 router.put('/:id', (req, res) => {
     User.update(req.body, {
       individualHooks: true,

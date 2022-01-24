@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Rating } = require('../../models');
+const { Post, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 // get all Wine Post 
@@ -13,17 +14,17 @@ router.get('/', (req, res) => {
         'wine_source',
         'wine_type',
         'img_url'
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
         {
           model: User,
           attributes: ['username']
@@ -50,17 +51,17 @@ router.get('/', (req, res) => {
         'wine_source',
         'wine_type',
         'img_url'
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
         {
           model: User,
           attributes: ['username']
@@ -83,11 +84,11 @@ router.get('/', (req, res) => {
 // Post a Wine 
 router.post('/', withAuth, (req, res) => {
     Post.create({
-      wine_name: req.body.name,
+      wine_name: req.body.wine_name,
       wine_vintage: req.body.wine_vintage,
       wine_source: req.body.wine_source,
-      type: req.body.type,
-      img_url: req.body.img,
+      wine_type: req.body.wine_type,
+      img_url: req.body.img_url,
       user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
@@ -98,16 +99,16 @@ router.post('/', withAuth, (req, res) => {
     });
 
 // Wine voting 
-    router.put('/upvote', (req, res) => {
-        if (req.session) {
-          Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-            .then(updatedVoteData => res.json(updatedVoteData))
-            .catch(err => {
-              console.log(err);
-              res.status(500).json(err);
-            });
-        }
-      });
+    // router.put('/upvote', (req, res) => {
+    //     if (req.session) {
+    //       Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    //         .then(updatedVoteData => res.json(updatedVoteData))
+    //         .catch(err => {
+    //           console.log(err);
+    //           res.status(500).json(err);
+    //         });
+    //     }
+    //   });
 
 // Delete a Post 
 router.delete('/:id', (req, res) => {

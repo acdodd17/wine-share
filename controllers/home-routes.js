@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const sequelize = require('../config/connection');
+const { Post, User } = require('../models');
 
 // Get all post on homepage
 router.get('/', (req, res) => {
@@ -12,17 +12,17 @@ router.get('/', (req, res) => {
         'wine_source',
         'wine_type',
         'img_url'
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
         {
           model: User,
           attributes: ['username']
@@ -33,7 +33,8 @@ router.get('/', (req, res) => {
         const posts = dbPostData.map(post => post.get({plain: true}));
         res.render('homepage',{
             posts, 
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            images: firebase.getImages(user_id)
         }); 
     })
     .catch(err => {
@@ -64,17 +65,17 @@ router.get('/:id', (req, res) => {
         'wine_source',
         'wine_type',
         'img_url'
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
         {
           model: User,
           attributes: ['username']
