@@ -1,0 +1,15 @@
+header {
+    background-color: maroon;
+}
+
+a {
+    color: white;
+}
+
+
+.homepage-image {
+    background-image: url("../images/wine-cellar.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+}
