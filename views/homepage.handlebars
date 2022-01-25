@@ -1,0 +1,19 @@
+
+<div class="container-fluid">
+  <div>
+    <h2 class="title text-center p-4">Open Cellars</h2>
+  </div>
+  <div class="row">
+    {{#each users as |user|}}
+    <div class="col col-lg-4 pb-4 d-flex justify-content-center">
+      <div class="card">
+        <img src="/images/generic-cellar.png" alt="wine cellar">
+        <div class="card-body">
+          <h4 class="card-title">{{username}}</h4>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
