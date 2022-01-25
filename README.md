@@ -1,7 +1,7 @@
 # Wine Share
 
 ## About Our Product
-
+Our app, Wine Share, is a virtual wine cellar
 
 ## Purpose
 
