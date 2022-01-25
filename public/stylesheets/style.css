@@ -17,15 +17,19 @@ a {
 }
 
 a:hover { 
-    color: #A7E7E0;
+    color: #d3b3bc;
 }
 
 .header {
-    background-color: #58181F;
+    background-color: #480027;
 }
 
 main {
     background-color: white;
+}
+
+h3 {
+    font-weight: bold;
 }
 
 .card {
@@ -33,9 +37,13 @@ main {
 }
 
 .card-body {
-    background-color: #F4D3CA;
+    background-color: #771731;
     /* background-color: #185851; */
     color: white;
+}
+
+.card-body p {
+    font-size: 20px;
 }
 
 .card-title {
@@ -55,7 +63,7 @@ button {
 }
 
 button:hover {
-    background-color: #A7E7E0;
+    background-color: #d3b3bc;
 }
 
 input {
@@ -68,9 +76,32 @@ input {
     height: 50px;
 }
 
+.wine-cards {
+    padding-top: 25px;
+}
+
+.form {
+    border-right: black 2px solid;
+
+}
+
+.wine-name{
+    background-color: #993b58;
+}
+
+.wine-name h4 {
+    color: white;
+    text-align: center;
+}
+
+.new-wine-form {
+    padding-top: 25px;
+    padding-right: 5px;
+}
+
 footer {
     color: white;
-    background-color: #58181F;
+    background-color: #480027;
     position: fixed;
     left: 0;
     bottom: 0;
