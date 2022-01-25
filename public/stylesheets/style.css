@@ -33,7 +33,8 @@ main {
 }
 
 .card-body {
-    background-color: #185851;
+    background-color: #F4D3CA;
+    /* background-color: #185851; */
     color: white;
 }
 
