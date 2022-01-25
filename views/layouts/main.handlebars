@@ -15,15 +15,15 @@
 <body>
   <div class="container-fluid">
     <div class="row header">
-      <div class="col title fs-1 m-4 text-center">
+      <div class="col title fs-1 m-4 text-center d-flex align-items-center justify-content-start">
         <a href="/">Wine Share</a> 
       </div>
       <div class="col m-4 ps-5 fs-4 d-flex align-items-center justify-content-end">
         {{#if loggedIn}}
-        <div id="dash"><a href="/dashboard" >Dashboard</a></div>
-        <div id="logout"><button id="logout">Logout</button></div>
+        <div id="dash" class="mx-2"><a href="/dashboard" >Dashboard</a></div>
+        <div id="logout" class="mx-2"><button id="logout">Logout</button></div>
         {{else}}
-        <div id="login"><a href="/login">Login/Sign-up</a></div>
+        <div id="login" class="mx-2"><a href="/login">Login/Sign-up</a></div>
         {{/if}}
       </div>
     </div>
@@ -39,6 +39,10 @@
        &copy; Wine Share Inc. 🍷
     </footer>
   </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
