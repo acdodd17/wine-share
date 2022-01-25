@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-3 form">
             <form class="new-wine-form">
+                <h3>Add New Wine:</h3>
                 <div>
                     <label for="wine-name">Wine Name:</label>
                     <input type="text" id="wine-name" />
@@ -34,11 +35,11 @@
                 </div>
             </form>
         </div>
-        <div class="col-9">
+        <div class="col-9 d-flex flex-wrap row wine-cards">
             {{#if posts.length}}
             
             {{#each posts as |post|}}
-                <div class="col d-flex flex-wrap justify-content-center">
+                <div class="d-flex flex-wrap justify-content-center">
                 <div class="card mb-4 p-2">
                     <img src={{img_url}} class="card-img-top" alt="picture of" + {{wine_name}}>
                     <div class="card-body">
