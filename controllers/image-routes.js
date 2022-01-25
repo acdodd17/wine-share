@@ -1,13 +1,24 @@
-const router = require('express').Router(); 
-require('dotenv').config();
+const router = require('express').Router();
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
 
-//import cloudinary
-const cloudinary = require('cloudinary');
+// post request
+router.post('/', upload.single('image'), async (req, res) => {
+    try {
+        const result = await cloudinary.uploader.upload(req.file.path)
+        res.json(result);
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+module.exports = router;
+
+
 
 // //import firebase 
 // const firebase = require('firebase');
-// const multer = require('multer');
-// const upload = multer();
+
 
 
 // // Set the configuration for your app with env variables
@@ -47,4 +58,3 @@ const cloudinary = require('cloudinary');
 //     })
 // });
 
-module.exports = router;
