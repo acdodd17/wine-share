@@ -1,51 +1,59 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-    <div class="col-4">
-        <form class="new-wine-form">
-            <div>
-                <label for="wine-name">Wine Name:</label>
-                <input type="text" id="wine-name" />
-            </div>
-            <div>
-                <label for="vintage">Vintage:</label>
-                <input type="text" id="vintage" />
-            </div>
-            <div>
-                <label for="type-select">Choose a type:</label>
-                <select name="types" id="type-select">
-                    <option value="">--Please choose an option--</option>
-                    <option value="red">Red</option>
-                    <option value="white">White</option>
-                    <option value="rose">Rose</option>
-                    <option value="sparkling">Sparkling</option>
-                </select>
-            </div>
-            <div>
-                <button type="submit">Add Wine</button>
-            </div>
-        </form>
-    </div>
-    <div class="col-8">
-      {{#if posts.length}}
-      
-      {{#each posts as |post|}}
-        <div class="col-6 d-flex justify-content-center">
-          <div class="card mb-4 p-2">
-            <img src={{img_url}} class="card-img-top" alt="picture of" + {{wine_name}}>
-            <div class="card-body">
-              <h5 class="card-title">{{wine_name}}</h5>
-              <div class="wine-type">
-                <p class="card-text">{{wine_type}}</p><span class={{wine_type}} + "-icon"></span>
-              </div>
-              <p class="card-text">{{wine_vintage}}</p>
-              <p class="card-text">{{wine_source}}</p>
-            </div>
-          </div>
+        <div class="col-3 form">
+            <form class="new-wine-form">
+                <div>
+                    <label for="wine-name">Wine Name:</label>
+                    <input type="text" id="wine-name" />
+                </div>
+                <div>
+                    <label for="vintage">Vintage:</label>
+                    <input type="text" id="vintage" />
+                </div>
+                <div>
+                    <label for="type-select">Choose a type:</label>
+                    <select name="types" id="type-select">
+                        <option value="">--Please choose an option--</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
+                        <option value="rose">Rose</option>
+                        <option value="sparkling">Sparkling</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="source">Source:</label>
+                    <input type="text" id="source" />
+                </div>
+                <div>
+                    <label for="myimage">Upload an image:</label>
+                    <input type="file" id="myimage" name="myimage">
+                </div>
+                <br>
+                <div>
+                    <button type="submit">Add Wine</button>
+                </div>
+            </form>
         </div>
-      {{/each}}
-      
-      {{/if}}
-    </div>
+        <div class="col-9">
+            {{#if posts.length}}
+            
+            {{#each posts as |post|}}
+                <div class="col d-flex flex-wrap justify-content-center">
+                <div class="card mb-4 p-2">
+                    <img src={{img_url}} class="card-img-top" alt="picture of" + {{wine_name}}>
+                    <div class="card-body">
+                    <h5 class="card-title">{{wine_name}}</h5>
+                    <div class="wine-type">
+                        <p class="card-text">{{wine_type}}</p><span class={{wine_type}} + "-icon"></span>
+                    </div>
+                    <p class="card-text">{{wine_vintage}}</p>
+                    <p class="card-text">{{wine_source}}</p>
+                    </div>
+                </div>
+                </div>
+            {{/each}}
+            {{/if}}
+        </div>
     </div>
 </div>
 
