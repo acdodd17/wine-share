@@ -4,27 +4,27 @@ const userdata = [
     {
         username: 'abby123',
         email: 'abby.abby@gmail.com',
-        password: 'w1n3luvR1'
+        password: 'wine'
     },
     {
         username: 'naomi456',
         email: 'naomi.naomi@gmail.com',
-        password: 'w1n3luvR2'
+        password: 'wine'
     },
     {
         username: 'tammy789',
         email: 'tammy.tammy@gmail.com',
-        password: 'w1n3luvR3'
+        password: 'wine'
     },
     {
         username: 'rebecca000',
         email: 'rebecca.rebecca@gmail.com',
-        password: 'w1n3luvR4'
+        password: 'wine'
     },
     {
         username: 'devonair',
         email: 'devon.devon@gmail.com',
-        password: 'w1n3guy1'
+        password: 'wine'
     },
 ];
 
