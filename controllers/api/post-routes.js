@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'wine_name',
-      'wine_vintage',
-      'wine_source',
       'wine_type',
+      'wine_vintage',
+      'wine_quanity',
+      'wine_source',
+      'wine_rating',
       'img_url'
     ],
     include: [
@@ -38,9 +40,11 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'wine_name',
-        'wine_vintage',
-        'wine_source',
         'wine_type',
+        'wine_vintage',
+        'wine_quanity',
+        'wine_source',
+        'wine_rating',
         'img_url'
       ],
       include: [
@@ -67,9 +71,11 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Post.create({
     wine_name: req.body.wine_name,
-    wine_vintage: req.body.wine_vintage,
-    wine_source: req.body.wine_source,
     wine_type: req.body.wine_type,
+    wine_vintage: req.body.wine_vintage,
+    wine_quanity: req.body.wine_quanity,
+    wine_source: req.body.wine_source,
+    wine_rating: req.body.wine_rating,
     img_url: req.body.img_url,
     user_id: req.session.user_id
   })
