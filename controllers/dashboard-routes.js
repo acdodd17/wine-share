@@ -11,9 +11,11 @@ router.get('/', withAuth, (req, res) => {
       attributes: [
         'id',
         'wine_name',
-        'wine_vintage',
-        'wine_source',
         'wine_type',
+        'wine_vintage',
+        'wine_quanity',
+        'wine_source',
+        'wine_rating',
         'img_url'
       ],
       include: [
