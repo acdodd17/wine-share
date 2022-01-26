@@ -46,9 +46,6 @@ h3 {
     font-size: 20px;
 }
 
-.card-title {
-    font-weight: bold;
-}
 
 label {
     font-size: 24px;
@@ -78,6 +75,18 @@ input {
 
 .wine-cards {
     padding-top: 25px;
+    background-color: #d3b3bc;
+}
+
+.wine-info p {
+    padding: 0px;
+    font-size: 20px;
+}
+
+.wine-notes {
+    background-color: white;
+    color: black;
+    width: 100%;
 }
 
 .form {
@@ -92,6 +101,7 @@ input {
 .wine-name h4 {
     color: white;
     text-align: center;
+    font-size: 18px;
 }
 
 .new-wine-form {
