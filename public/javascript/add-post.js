@@ -26,9 +26,9 @@ async function newWineHandler(event) {
       } else {
         alert(response.statusText);
       }
-
-  
-      document.querySelector('.new-wine-form').addEventListener('submit', newWineHandler);
 };
+
+document.querySelector('.new-wine-form').addEventListener('submit', newWineHandler);
+
   
   
