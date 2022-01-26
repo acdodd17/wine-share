@@ -19,6 +19,6 @@ async function upcountClickHandler(event) {
     } else {
       alert(response.statusText);
     }
-  }
+}
   
-  document.querySelector('.upcount-btn').addEventListener('click', upcountClickHandler);
+document.querySelector('.upcount-btn').addEventListener('click', upcountClickHandler);
