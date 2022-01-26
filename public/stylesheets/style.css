@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover; */
     font-family: 'Tenali Ramakrishna', sans-serif;
+    /* background-color: #d3b3bc; */
 }
 
 .title {
@@ -24,9 +25,9 @@ a:hover {
     background-color: #480027;
 }
 
-main {
+/* main {
     background-color: white;
-}
+} */
 
 h3 {
     font-weight: bold;

@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 class Post extends Model {
   static upcount(body, models) {
     return models.Count.create({
-      user_id: body.user.id, 
+      user_id: body.user_id, 
       post_id: body.post_id
     }).then(() => {
       return Post.findOne({
