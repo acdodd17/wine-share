@@ -1,15 +1,15 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3 form">
+        <div class="col-lg-3 form">
             <form class="new-wine-form">
                 <h3>Add New Wine:</h3>
                 <div class="pt-1">
                     <label for="wine-name">Wine Name:</label>
-                    <input type="text" id="wine-name" />
+                    <input type="text" id="wine-name" name="wine-name"/>
                 </div>
                 <div class="pt-3">
                     <label for="type-select">Type of Wine:</label>
-                    <select name="types" id="type-select">
+                    <select name="wine-type" id="wine-type">
                         <option value="">--Please choose an option--</option>
                         <option value="red">Red</option>
                         <option value="white">White</option>
@@ -19,13 +19,13 @@
                 </div>
                 <div class="pt-3">
                     <label for="vintage">Vintage:</label>
-                    <input type="text" id="vintage" />
+                    <input type="text" id="wine-vintage" name="wine-vintage"/>
                 </div>
                 <div class="pt-3">
                     <label for="source">Source:</label>
-                    <input type="text" id="source" />
+                    <input type="text" id="wine-source" name="wine-source"/>
                 </div>
-                <div class="pt-3">
+                {{!-- <div class="pt-3">
                     <label for="quantity">Quantity:</label>
                     <input type="text" id="quantity" />
                 </div>
@@ -39,7 +39,7 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                </div>
+                </div> --}}
                 <div class="pt-3">
                     <label for="myimage">Upload Image:</label>
                     <input type="file" id="myimage" name="myimage">
@@ -50,30 +50,17 @@
                 </div>
             </form>
         </div>
-        <div class="col-9 flex-wrap wine-cards row row-cols-2">
+        <div class="col wine-cards">
             {{#if posts.length}}
-            {{#each posts as |post|}}
-                <div class="col d-flex justify-content-center">
-                <div class="col card mb-4 p-2">
-                    <div class="image">
-                        <img src={{img_url}} class="card-img-top" alt="picture of" + {{wine_name}}>
-                    </div>
-                    <div class="wine-name p-3">
-                        <h4 class="card-title">{{wine_name}}</h4>
-                    </div>
-                    <div class="card-body d-flex">
-                        <div class="flex-wrap">
-                            <div class="wine-type">
-                                <p class="card-text">{{wine_type}}</p><span class={{wine_type}} + "-icon"></span>
-                            </div>
-                            <p class="card-text">{{wine_vintage}}</p>
-                            <p class="card-text">{{wine_source}}</p>
-                            <p class="card-text">{{wine_quantity}}</p>
-                        </div>
-                    </div>
+            
+            <div class="row d-flex flex-wrap">
+                {{#each posts as |post|}}
+                <div class="col-lg-6 d-flex justify-content-center">
+                    {{> post-info post}}
                 </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            </div>
+            
             {{/if}}
         </div>
     </div>

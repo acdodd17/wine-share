@@ -32,9 +32,15 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      notes: {
-        type: DataTypes.TEXT
-      },
+      // notes: {
+      //   type: DataTypes.TEXT
+      // },
+      // wine_quanitity: {
+      //   type: DataTypes.TEXT
+      // }, 
+      // wine_rating: {
+      //   type: DataTypes.INTEGER
+      // },
       img_url: {
         type: DataTypes.STRING,
         validate: {

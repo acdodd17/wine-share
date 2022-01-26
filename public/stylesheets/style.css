@@ -33,7 +33,7 @@ h3 {
 }
 
 .card {
-    width: 75%;
+    width: 70%;
 }
 
 .card-body {
@@ -67,7 +67,7 @@ button:hover {
 }
 
 input {
-    width: 15rem;
+    /* width: 15rem; */
     padding: 5px;
     margin: 10px;
     border-radius: 5px;

@@ -12,10 +12,10 @@ router.get('/', (req, res) => {
       'wine_name',
       'wine_type',
       'wine_vintage',
-      'wine_quanity',
+      // 'wine_quanity',
       'wine_source',
-      'wine_rating',
-      'img_url'
+      // 'wine_rating',
+      //'img_url'
     ],
     include: [
       {
@@ -42,10 +42,10 @@ router.get('/', (req, res) => {
         'wine_name',
         'wine_type',
         'wine_vintage',
-        'wine_quanity',
+        // 'wine_quanity',
         'wine_source',
-        'wine_rating',
-        'img_url'
+        // 'wine_rating',
+        //'img_url'
       ],
       include: [
         {
@@ -73,10 +73,10 @@ router.post('/', withAuth, (req, res) => {
     wine_name: req.body.wine_name,
     wine_type: req.body.wine_type,
     wine_vintage: req.body.wine_vintage,
-    wine_quanity: req.body.wine_quanity,
+    // wine_quanity: req.body.wine_quanity,
     wine_source: req.body.wine_source,
-    wine_rating: req.body.wine_rating,
-    img_url: req.body.img_url,
+    // wine_rating: req.body.wine_rating,
+    //img_url: req.body.img_url,
     user_id: req.session.user_id
   })
   .then(dbPostData => res.json(dbPostData))
@@ -108,3 +108,4 @@ router.delete('/:id', (req, res) => {
   
   module.exports = router;
 
+  
