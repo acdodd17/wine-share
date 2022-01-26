@@ -14,10 +14,8 @@ router.get('/', withAuth, (req, res) => {
         'wine_name',
         'wine_type',
         'wine_vintage',
-        //'wine_quanity',
         'wine_source',
-        //'wine_rating',
-        //'img_url'
+        'wine_notes',
         [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
       ],
       include: [

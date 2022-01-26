@@ -12,11 +12,9 @@ router.get('/', (req, res) => {
       'wine_name',
       'wine_type',
       'wine_vintage',
-      // 'wine_quanity',
       'wine_source',
+      'wine_notes',
       [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
-      // 'wine_rating',
-      //'img_url'
     ],
     include: [
       {
@@ -44,6 +42,7 @@ router.get('/', (req, res) => {
         'wine_type',
         'wine_vintage',
         'wine_source',
+        'wine_notes',
         [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
       ],
       include: [
@@ -73,6 +72,7 @@ router.post('/', withAuth, (req, res) => {
     wine_type: req.body.wine_type,
     wine_vintage: req.body.wine_vintage,
     wine_source: req.body.wine_source,
+    wine_notes: req.body.wine_notes,
     user_id: req.session.user_id
   })
   .then(dbPostData => res.json(dbPostData))

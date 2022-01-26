@@ -57,6 +57,9 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+      wine_notes: {
+        type: DataTypes.TEXT, 
+      },
       // notes: {
       //   type: DataTypes.TEXT
       // },
