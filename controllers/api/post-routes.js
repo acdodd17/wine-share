@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'wine_vintage',
       // 'wine_quanity',
       'wine_source',
-      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'count_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
       // 'wine_rating',
       //'img_url'
     ],
@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
         'wine_vintage',
         // 'wine_quanity',
         'wine_source',
-        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'count_count']
+        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
         // 'wine_rating',
         //'img_url'
       ],
@@ -70,7 +70,7 @@ router.get('/', (req, res) => {
   });
 
 // Post a Wine 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   Post.create({
     wine_name: req.body.wine_name,
     wine_type: req.body.wine_type,
@@ -90,7 +90,7 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/quantity', withAuth, (req, res) => {
   // custom static method created in models/Post.js
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Count, Comment, User })
+  Post.upcount({ ...req.body, user_id: req.session.user_id }, { Count, User })
     .then(updatedCountData => res.json(updatedCountData))
     .catch(err => {
       console.log(err);

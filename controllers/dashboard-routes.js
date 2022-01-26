@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -17,6 +18,7 @@ router.get('/', withAuth, (req, res) => {
         'wine_source',
         //'wine_rating',
         //'img_url'
+        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
       ],
       include: [
         {
