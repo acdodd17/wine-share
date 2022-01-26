@@ -1,7 +1,12 @@
 const router = require('express').Router(); 
+require('dotenv').config();
+//const withAuth = require('../../utils/auth');
+
+//import cloudinary
+//const cloudinary = require('cloudinary');
+
 //import firebase 
 const firebase = require('firebase');
-require('dotenv').config();
 const multer = require('multer');
 const upload = multer();
 
@@ -36,7 +41,7 @@ function uploadFile (path, file) {
 }
 
 // connecting to router to respond to post request with upload id
-router.post('/:id', upload.single('file'), (req, res) => {
+router.post('/:id',  upload.single('file'), (req, res) => {
     console.log(req.file);
     uploadFile(req.params.id, req.file).then((result) => {
         res.send(result);
@@ -44,3 +49,4 @@ router.post('/:id', upload.single('file'), (req, res) => {
 });
 
 module.exports = router;
+

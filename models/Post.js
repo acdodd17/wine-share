@@ -1,10 +1,35 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {};
+class Post extends Model {
+  static upcount(body, models) {
+    return models.Count.create({
+      user_id: body.user_id, 
+      post_id: body.post_id
+    }).then(() => {
+      return Post.findOne({
+        where: {
+          id: body.post_id
+        }, 
+        attributes: [
+          'id', 
+          'wine_name', 
+          'wine_type', 
+          'wine_vintage', 
+          'wine_source', 
+          [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'count_count']
+        ], 
+        include: [
+          {
+            model: models.User, 
+            attributes: ['username']
+          }
+        ]
+      })
+    })
+  }
+};
 
-
-// name, vintage, source, type: red, white, sparkling, rose, img 
 
 // create fields/columns for Post model
 Post.init(
@@ -32,15 +57,24 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      notes: {
-        type: DataTypes.TEXT
+      wine_notes: {
+        type: DataTypes.TEXT, 
       },
-      img_url: {
-        type: DataTypes.STRING,
-        validate: {
-          isURL: true
-        }
-      },
+      // notes: {
+      //   type: DataTypes.TEXT
+      // },
+      // wine_quanitity: {
+      //   type: DataTypes.TEXT
+      // }, 
+      // wine_rating: {
+      //   type: DataTypes.INTEGER
+      // },
+      // img_url: {
+      //   type: DataTypes.STRING,
+      //   validate: {
+      //     isURL: true
+      //   }
+      // },
       user_id: {
         type: DataTypes.INTEGER,
         references: {

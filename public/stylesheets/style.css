@@ -1,15 +1,121 @@
-header {
-    background-color: maroon;
+
+body {
+    /* background-image: url('../images/cellar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    /* background-color: #d3b3bc; */
+}
+
+.title {
+    font-family: 'Meddon', cursive;
 }
 
 a {
     color: white;
+    text-decoration: none;
+    
+}
+
+a:hover { 
+    color: #d3b3bc;
+}
+
+.header {
+    background-color: #480027;
+}
+
+/* main {
+    background-color: white;
+} */
+
+h3 {
+    font-weight: bold;
+}
+
+.card {
+    width: 70%;
+}
+
+.card-body {
+    background-color: #771731;
+    /* background-color: #185851; */
+    color: white;
+}
+
+.card-body p {
+    font-size: 20px;
 }
 
 
-.homepage-image {
-    background-image: url("../images/wine-cellar.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 80%;
+label {
+    font-size: 24px;
+}
+
+button {
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 100px
+}
+
+button:hover {
+    background-color: #d3b3bc;
+}
+
+input {
+    /* width: 15rem; */
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.push {
+    height: 50px;
+}
+
+.wine-cards {
+    padding-top: 25px;
+    background-color: #d3b3bc;
+}
+
+.wine-info p {
+    padding: 0px;
+    font-size: 20px;
+}
+
+.wine-notes {
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+.form {
+    border-right: black 2px solid;
+
+}
+
+.wine-name{
+    background-color: #993b58;
+}
+
+.wine-name h4 {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.new-wine-form {
+    padding-top: 25px;
+    padding-right: 5px;
+}
+
+footer {
+    color: white;
+    background-color: #480027;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5px;
 }
