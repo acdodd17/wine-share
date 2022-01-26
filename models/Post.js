@@ -41,12 +41,12 @@ Post.init(
       // wine_rating: {
       //   type: DataTypes.INTEGER
       // },
-      img_url: {
-        type: DataTypes.STRING,
-        validate: {
-          isURL: true
-        }
-      },
+      // img_url: {
+      //   type: DataTypes.STRING,
+      //   validate: {
+      //     isURL: true
+      //   }
+      // },
       user_id: {
         type: DataTypes.INTEGER,
         references: {

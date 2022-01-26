@@ -1,5 +1,5 @@
 const router = require('express').Router(); 
-const { User, Post } = require('../../models'); 
+const { User, Post, Count } = require('../../models'); 
 
 // Get all Users 
 router.get('/', (req, res) => {
@@ -24,6 +24,12 @@ router.get('/:id', (req, res) => {
         {
           model: Post,
           attributes: ['id', 'wine_name', 'wine_type','wine_vintage', 'wine_quanity', 'wine_source', 'wine_rating', 'img_url', 'user_id']
+        }, 
+        {
+          model: Post,
+          attributes: ['title'],
+          through: Count,
+          as: 'wine_count'
         }
       ]
     })

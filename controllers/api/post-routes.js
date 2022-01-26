@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User } = require('../../models');
+const { Post, User, Count } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
       'wine_vintage',
       // 'wine_quanity',
       'wine_source',
+      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'count_count']
       // 'wine_rating',
       //'img_url'
     ],
@@ -44,6 +45,7 @@ router.get('/', (req, res) => {
         'wine_vintage',
         // 'wine_quanity',
         'wine_source',
+        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'count_count']
         // 'wine_rating',
         //'img_url'
       ],
@@ -84,6 +86,16 @@ router.post('/', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
+});
+
+router.put('/quantity', withAuth, (req, res) => {
+  // custom static method created in models/Post.js
+  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Count, Comment, User })
+    .then(updatedCountData => res.json(updatedCountData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Delete a Post 
