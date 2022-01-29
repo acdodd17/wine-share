@@ -13,27 +13,25 @@ async function editFormHandler(event) {
       window.location.toString().split('/').length - 1
     ];
       
-      const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-          post_id: id,
-          wine_name,
-          wine_type,
-          wine_vintage,
-          wine_source,
-          wine_notes
+            wine_name,
+            wine_type,
+            wine_vintage,
+            wine_source,
+            wine_notes
         }),
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         }
-      });
-      
-      if (response.ok) {
+    });
+    
+    if (response.ok) {
         document.location.replace('/dashboard/');
-      } else {
+    } else {
         alert(response.statusText);
-      }
-  
-  }
-  
-  document.querySelector('.new-wine-form').addEventListener('submit', editFormHandler);
+    }
+};
+
+document.querySelector('.edit-wine-form').addEventListener('submit', editFormHandler);

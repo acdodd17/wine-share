@@ -1,34 +1,45 @@
-{{!-- <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="m-4 d-flex flex-column align-items-center wine-view">
+      <div d-flex justify-content-center>
+        <a href="/dashboard" class="back-to-dash"> &larr; Back to dashboard</a>
+      </div>
+    
+      <div class="card">
+        <div class="card-body">
+          <form class="edit-wine-form d-flex flex-column align-items-center">
+            <div class="row d-flex justify-content-center">
+              <div class="wine-name title">
+                <input name="wine-name" type="text" placeholder="{{post.wine_name}}" />
+              </div>
+              <div class="wine-data col">
+                <select name="wine-type" id="wine-type" aria-placeholder="{{post.wine_type}}">
+                  <option value="">--Please choose an option--</option>
+                  <option value="red">Red</option>
+                  <option value="white">White</option>
+                  <option value="rose">Rose</option>
+                  <option value="sparkling">Sparkling</option>
+                </select>
+                <input type="text" id="wine-vintage" name="wine-vintage" placeholder="{{post.wine_vintage}}"/>
+                <input type="text" id="wine-source" name="wine-source" placeholder="{{post.wine_source}}"/>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center wine-notes mb-4">
+              <input type="text" id="wine-notes" name="wine-notes" placeholder="{{post.wine_notes}}"/>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col">
+                <button type="submit" >Save</button>
+              </div>
+              <div class="col">
+                <button type="button" class="delete-post-btn">Delete Wine</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
-</article>
+</div>
 
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form> --}}
-
-{{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

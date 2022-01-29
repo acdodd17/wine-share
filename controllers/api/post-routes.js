@@ -30,42 +30,42 @@ router.get('/', (req, res) => {
     });
 });
 
-  // Get Post by ID
-  router.get('/:id', (req, res) => {
-    Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      attributes: [
-        'id',
-        'wine_name',
-        'wine_type',
-        'wine_vintage',
-        'wine_source',
-        'wine_notes',
-        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
-      ],
-      include: [
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+// get wine post by id
+router.get('/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'wine_name',
+      'wine_type',
+      'wine_vintage',
+      'wine_source',
+      'wine_notes',
+      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(dbPostData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-// Post a Wine 
+// create new wine 
 router.post('/', withAuth, (req, res) => {
   Post.create({
     wine_name: req.body.wine_name,
@@ -87,6 +87,35 @@ router.put('/quantity', withAuth, (req, res) => {
   // custom static method created in models/Post.js
   Post.upcount({ ...req.body, user_id: req.session.user_id }, { Count, User })
     .then(updatedCountData => res.json(updatedCountData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// Edit a wine post 
+router.put('/:id', withAuth, (req, res) => {
+  Post.update(
+    {
+      wine_name: req.body.wine_name,
+      wine_type: req.body.wine_type,
+      wine_vintage: req.body.wine_vintage,
+      wine_source: req.body.wine_source,
+      wine_notes: req.body.wine_notes,
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

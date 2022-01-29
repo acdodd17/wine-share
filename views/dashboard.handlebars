@@ -11,10 +11,10 @@
                     <label for="type-select">Type of Wine:</label>
                     <select name="wine-type" id="wine-type">
                         <option value="">--Please choose an option--</option>
-                        <option value="red">Red</option>
-                        <option value="white">White</option>
-                        <option value="rose">Rose</option>
-                        <option value="sparkling">Sparkling</option>
+                        <option value="Red">Red</option>
+                        <option value="White">White</option>
+                        <option value="Rose">Rose</option>
+                        <option value="Sparkling">Sparkling</option>
                     </select>
                 </div>
                 <div class="pt-3">
@@ -58,7 +58,7 @@
         <div class="col wine-cards">
             {{#if posts.length}}
             
-            <div class="row d-flex flex-wrap">
+            <div class="row gx-5 d-flex flex-wrap">
                 {{#each posts as |post|}}
                 <div class="col-lg-6 d-flex justify-content-center">
                     {{> post-info post}}
