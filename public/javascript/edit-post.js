@@ -14,26 +14,24 @@ async function editFormHandler(event) {
     ];
       
     const response = await fetch(`/api/posts/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-        post_id: id,
-        wine_name,
-        wine_type,
-        wine_vintage,
-        wine_source,
-        wine_notes
-    }),
-    headers: {
-        'Content-Type': 'application/json'
-    }
+        method: 'PUT',
+        body: JSON.stringify({
+            wine_name,
+            wine_type,
+            wine_vintage,
+            wine_source,
+            wine_notes
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
     
     if (response.ok) {
-    document.location.replace('/dashboard/');
+        document.location.replace('/dashboard/');
     } else {
-    alert(response.statusText);
+        alert(response.statusText);
     }
-
-}
+};
 
 document.querySelector('.edit-wine-form').addEventListener('submit', editFormHandler);

@@ -1,40 +1,45 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-wine-form">
-    <div class="pt-1">
-          <label for="wine-name">Wine Name:</label>
-          <input type="text" id="wine-name" name="wine-name" value="{{wine_name}}"/>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="m-4 d-flex flex-column align-items-center wine-view">
+      <div d-flex justify-content-center>
+        <a href="/dashboard" class="back-to-dash"> &larr; Back to dashboard</a>
       </div>
-      <div class="pt-3">
-          <label for="type-select">Type of Wine:</label>
-          <select name="wine-type" id="wine-type" value="{{wine_type}}">
-              <option value="">--Please choose an option--</option>
-              <option value="red">Red</option>
-              <option value="white">White</option>
-              <option value="rose">Rose</option>
-              <option value="sparkling">Sparkling</option>
-          </select>
+    
+      <div class="card">
+        <div class="card-body">
+          <form class="edit-wine-form d-flex flex-column align-items-center">
+            <div class="row d-flex justify-content-center">
+              <div class="wine-name title">
+                <input name="wine-name" type="text" placeholder="{{post.wine_name}}" />
+              </div>
+              <div class="wine-data col">
+                <select name="wine-type" id="wine-type" aria-placeholder="{{post.wine_type}}">
+                  <option value="">--Please choose an option--</option>
+                  <option value="red">Red</option>
+                  <option value="white">White</option>
+                  <option value="rose">Rose</option>
+                  <option value="sparkling">Sparkling</option>
+                </select>
+                <input type="text" id="wine-vintage" name="wine-vintage" placeholder="{{post.wine_vintage}}"/>
+                <input type="text" id="wine-source" name="wine-source" placeholder="{{post.wine_source}}"/>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center wine-notes mb-4">
+              <input type="text" id="wine-notes" name="wine-notes" placeholder="{{post.wine_notes}}"/>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col">
+                <button type="submit" >Save</button>
+              </div>
+              <div class="col">
+                <button type="button" class="delete-post-btn">Delete Wine</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="pt-3">
-          <label for="vintage">Vintage:</label>
-          <input type="text" id="wine-vintage" name="wine-vintage" value="{{wine_vintage}}"/>
-      </div>
-      <div class="pt-3">
-          <label for="source">Source:</label>
-          <input type="text" id="wine-source" name="wine-source" value="{{wine_source}}"/>
-      </div>
-      <div class="pt-3">
-          <label for="notes">Notes:</label>
-          <input type="text" id="wine-notes" name="wine-notes" value="{{wine_notes}}"/>
     </div>
-    <button type="submit">Save</button>
-    <button type="button" class="delete-post-btn">Delete Wine</button>
-  </form>
-</article>
+</div>
 
 
 <script src="/javascript/edit-post.js"></script>
-{{!-- <script src="/javascript/delete-post.js"></script> --}}
+<script src="/javascript/delete-post.js"></script>

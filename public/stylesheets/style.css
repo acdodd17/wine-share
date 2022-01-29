@@ -34,7 +34,7 @@ h3 {
 }
 
 .card {
-    width: 70%;
+    width: 100%;
 }
 
 .card-body {
@@ -47,9 +47,21 @@ h3 {
     font-size: 20px;
 }
 
+.card-text {
+    padding: 0px;
+}
+
 
 label {
     font-size: 24px;
+}
+
+.back-to-dash {
+    font-size: 36px;
+    color: #d3b3bc;
+}
+.back-to-dash:hover {
+    color: #480027;
 }
 
 button {
@@ -67,8 +79,8 @@ button:hover {
 input {
     /* width: 15rem; */
     padding: 5px;
-    margin: 10px;
     border-radius: 5px;
+    width: 75%;
 }
 .push {
     height: 50px;
@@ -80,7 +92,7 @@ input {
 }
 
 .wine-name h4:hover {
-    color: #9cbfbe
+    color: #d3b3bc
 }
 
 .wine-info p {
@@ -101,6 +113,11 @@ input {
 .wine-img {
     width: 50%;
     background-color: white;
+}
+
+.wine-img img {
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .form {

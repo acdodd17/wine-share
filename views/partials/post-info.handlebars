@@ -20,14 +20,16 @@
                     <p class="card-text mx-2">{{wine_notes}}</p>
                 </div>
             </div>
-                <div class="wine-img col me-2">
-                    <img src="" alt="image of {{wine_name}}"> </a>
-                </div>
+            <div class="wine-img col me-2 d-flex justify-content-center align-items-center">
+                <img src="" alt="image of {{wine_name}}"> </a>
+            </div>
         </div>
         <div class="meta">
                 {{wine_count}} {{format_plural "bottle" wine_count}}
         </div>
-        
+        <a href="/dashboard/edit/{{id}}" class="edit-link d-flex flex-row-reverse">
+            <h3>Edit wine</h3>
+        </a>
     </div>
 
 </div>
