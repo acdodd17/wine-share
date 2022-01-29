@@ -16,7 +16,7 @@ router.get('/', withAuth, (req, res) => {
         'wine_vintage',
         'wine_source',
         'wine_notes',
-        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
+        'wine_count'
       ],
       include: [
         {
@@ -44,7 +44,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         'wine_vintage',
         'wine_source',
         'wine_notes',
-        [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
+        'wine_count'
       ],
       include: [
         {

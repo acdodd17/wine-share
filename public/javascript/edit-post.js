@@ -5,8 +5,9 @@ async function editFormHandler(event) {
     const wine_type = document.querySelector('#wine-type option:checked').value;
     const wine_vintage = document.querySelector('input[name="wine-vintage"]').value;
     const wine_source = document.querySelector('input[name="wine-source"]').value;
-    const wine_notes = document.querySelector('input[name="wine-notes"]').value
-  
+    const wine_notes = document.querySelector('input[name="wine-notes"]').value;
+    const wine_count = document.querySelector('input[name="wine-count"]').value;
+
 
   
     const id = window.location.toString().split('/')[
@@ -20,7 +21,8 @@ async function editFormHandler(event) {
             wine_type,
             wine_vintage,
             wine_source,
-            wine_notes
+            wine_notes, 
+            wine_count
         }),
         headers: {
             'Content-Type': 'application/json'

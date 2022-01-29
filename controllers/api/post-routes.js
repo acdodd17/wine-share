@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'wine_vintage',
       'wine_source',
       'wine_notes',
-      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
+      'wine-count'
     ],
     include: [
       {
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
       'wine_vintage',
       'wine_source',
       'wine_notes',
-      [sequelize.literal('(SELECT COUNT(*) FROM count WHERE post.id = count.post_id)'), 'wine_count']
+      'wine-count'
     ],
     include: [
       {
@@ -73,6 +73,7 @@ router.post('/', withAuth, (req, res) => {
     wine_vintage: req.body.wine_vintage,
     wine_source: req.body.wine_source,
     wine_notes: req.body.wine_notes,
+    wine_count: req.body.wine_count,
     user_id: req.session.user_id
   })
   .then(dbPostData => res.json(dbPostData))
@@ -107,6 +108,7 @@ router.put('/:id', withAuth, (req, res) => {
       wine_vintage: req.body.wine_vintage,
       wine_source: req.body.wine_source,
       wine_notes: req.body.wine_notes,
+      wine_count: req.body.wine_count
     },
     {
       where: {

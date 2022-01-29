@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['id', 'wine_name', 'wine_type','wine_vintage', 'wine_quanity', 'wine_source', 'wine_rating', 'img_url', 'user_id']
+          attributes: ['id', 'wine_name', 'wine_type','wine_vintage', 'wine_count', 'wine_source', 'wine_notes', 'user_id']
         }, 
         {
           model: Post,

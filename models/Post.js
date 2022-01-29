@@ -1,17 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {
-  static upcount(postBody, models) {
-    return models.Count.upsert({
-      count: postBody.count,
-      user_id: postBody.user_id, 
-      post_id: postBody.post_id 
-    }).then((data) => {
-      return data
-    })
-  }
-};
+class Post extends Model {};
+//   static upcount(postBody, models) {
+//     return models.Count.upsert({
+//       count: postBody.count,
+//       user_id: postBody.user_id, 
+//       post_id: postBody.post_id 
+//     }).then((data) => {
+//       return data
+//     })
+//   }
+// };
 
 
 // Post.findOne({
@@ -63,6 +63,10 @@ Post.init(
       },
       wine_notes: {
         type: DataTypes.TEXT, 
+      },
+      wine_count: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       },
       user_id: {
         type: DataTypes.INTEGER,
