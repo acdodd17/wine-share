@@ -21,6 +21,7 @@ Wine Share is virtual wine cellar app with the ability to track specific details
 * Sequelize ORM
 
 ## Website
+https://wine-share.herokuapp.com/
 
 ## Contribution
 Wine Share created by Anna D, Alvin Y, and Elizabeth B
