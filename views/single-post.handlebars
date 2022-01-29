@@ -3,7 +3,40 @@
         <div class= "d-flex justify-content-center>">
             <a href="/dashboard" class="back-to-dash"> &larr; Back to dashboard</a>
         </div>
-        {{> post-info post}}
+        <div class="card mb-4 p-2" id="new-wine">
+   
+            <div class="wine-name p-3">
+                <a href="/post/{{id}}"> <h4 class="card-title title">{{post.wine_name}}</h4></a> 
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="wine-data col">
+                        <div class="wine-info">
+                            <p class="card-text">{{post.wine_type}}</p>
+                            <p class="card-text">{{post.wine_vintage}}</p>
+                            <p class="card-text">{{post.wine_source}}</p>
+                        </div>
+                        <div class="wine-notes mb-2">
+                            <p class="card-text mx-2">{{post.wine_notes}}</p>
+                        </div>
+                    </div>
+                    <div class="wine-img col me-2 d-flex justify-content-center align-items-center">
+                        <img src="" alt="image of {{post.wine_name}}"> </a>
+                    </div>
+                </div>
+                <div class="meta d-flex flex-row justify-content-between">
+                    <div d-flex flex-column>
+                        <p>{{post.wine_count}} {{format_plural "bottle" post.wine_count}}</p>
+                        <button type="button" class="upcount-btn">upvote</button>
+                    </div>
+                    <a href="/dashboard/edit/{{id}}" class="edit-link">
+                        <h3>Edit wine</h3>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </div>
 
+<script src="/javascript/upcount.js"></script>
