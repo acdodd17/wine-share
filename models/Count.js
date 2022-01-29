@@ -10,6 +10,11 @@ Count.init(
       primaryKey: true,
       autoIncrement: true
     },
+    count: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

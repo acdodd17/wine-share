@@ -4,11 +4,12 @@ async function upcountClickHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
-
+    const parsedId = parseInt(id);
     const response = await fetch('/api/posts/quantity', {
       method: 'PUT',
       body: JSON.stringify({
-        post_id: id
+        post_id: parsedId,
+        count:2
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -16,7 +17,8 @@ async function upcountClickHandler(event) {
     });
   
     if (response.ok) {
-      document.location.reload();
+      //document.location.reload();
+      console.log(response)
     } else {
       alert(response.statusText);
     }

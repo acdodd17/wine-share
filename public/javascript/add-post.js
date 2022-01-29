@@ -22,7 +22,7 @@ async function newWineHandler(event) {
     }
   });
 
-  console.log(response);
+  //console.log(response);
   
   if (response.ok) {
     document.location.replace('/dashboard');

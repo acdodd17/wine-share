@@ -85,13 +85,18 @@ router.post('/', withAuth, (req, res) => {
 // add to bottle count
 router.put('/quantity', withAuth, (req, res) => {
   // custom static method created in models/Post.js
+  console.log(req.body);
   Post.upcount({ ...req.body, user_id: req.session.user_id }, { Count, User })
-    .then(updatedCountData => res.json(updatedCountData))
+    .then(updatedCountData => { 
+      console.log(updatedCountData);
+      res.json(updatedCountData)})
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
+
 
 // Edit a wine post 
 router.put('/:id', withAuth, (req, res) => {
