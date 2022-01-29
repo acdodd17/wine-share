@@ -1,30 +1,33 @@
 <div class="container-fluid d-flex justify-content-center">
     <div class="m-4 d-flex flex-column align-items-center wine-view">
-      <div d-flex justify-content-center>
+      <div class="d-flex justify-content-center">
         <a href="/dashboard" class="back-to-dash"> &larr; Back to dashboard</a>
       </div>
     
       <div class="card">
         <div class="card-body">
-          <form class="edit-wine-form d-flex flex-column align-items-center">
-            <div class="row d-flex justify-content-center">
-              <div class="wine-name title">
-                <input name="wine-name" type="text" placeholder="{{post.wine_name}}" />
+          <form class="edit-wine-form d-flex flex-column align-items-center justify-content-center">
+            <div class="row d-flex align-items-center">
+              <div class="title d-flex justify-content-center">
+                <input name="wine-name" class="pt-2 m-2 justify-content-center" type="text" placeholder="{{post.wine_name}}" />
               </div>
-              <div class="wine-data col">
-                <select name="wine-type" id="wine-type" aria-placeholder="{{post.wine_type}}">
+              <div class="wine-data col d-flex justify-content-center">
+                <select name="wine-type" class="pt-2 m-2 justify-content-center" id="wine-type" aria-placeholder="{{post.wine_type}}">
                   <option value="">--Please choose an option--</option>
                   <option value="red">Red</option>
                   <option value="white">White</option>
                   <option value="rose">Rose</option>
                   <option value="sparkling">Sparkling</option>
                 </select>
-                <input type="text" id="wine-vintage" name="wine-vintage" placeholder="{{post.wine_vintage}}"/>
-                <input type="text" id="wine-source" name="wine-source" placeholder="{{post.wine_source}}"/>
+                <input type="text" class="pt-2 m-2 justify-content-center" id="wine-vintage" name="wine-vintage" placeholder="{{post.wine_vintage}}"/>
               </div>
-            </div>
-            <div class="row d-flex justify-content-center wine-notes mb-4">
-              <input type="text" id="wine-notes" name="wine-notes" placeholder="{{post.wine_notes}}"/>
+              <div class="d-flex justify-content-center">
+                <input type="text" class="pt-2 m-2" id="wine-source" name="wine-source" placeholder="{{post.wine_source}}"/>
+               
+              </div>
+              <div class="d-flex justify-content-center">
+                 <input type="text" class="pt-2 m-2 mb-4" id="wine-notes" name="wine-notes" placeholder="{{post.wine_notes}}"/>
+              </div>
             </div>
             <div class="row d-flex justify-content-center">
               <div class="col">

@@ -83,6 +83,17 @@ input {
     width: 75%;
 }
 
+#username-signup, #email-signup, #password-signup {
+    width: 15rem;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#wine-vintage {
+    width: 55%;
+}
+
 .push {
     height: 50px;
 }
