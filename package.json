@@ -1,7 +1,7 @@
 {
-  "name": "wine-share",
+  "name": "y",
   "version": "1.0.0",
-  "description": "",
+  "description": "## About Our Product Our app, Wine Share, is a virtual wine cellar. This app allows for the consumer to not only keep track of what wines they have, but also provide them with the source of where the wine came from. Wine Share allows for the consumer to keep track of the vintage, type of wine, quantity of bottles, and the source for the wine. The consumer will never have to wonder where they got their wine in case they want to buy more. Wine Share allows for users to be able to see other users' cellars as well.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
