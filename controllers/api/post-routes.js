@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
     });
 });
 
-  // Get Post by ID
+  // get wine post by id
   router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
       });
   });
 
-// Post a Wine 
+// create new wine 
 router.post('/', withAuth, (req, res) => {
   Post.create({
     wine_name: req.body.wine_name,

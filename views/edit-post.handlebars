@@ -1,34 +1,40 @@
-{{!-- <article>
+<article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
     Edit Post
   </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+  <form class="edit-wine-form">
+    <div class="pt-1">
+          <label for="wine-name">Wine Name:</label>
+          <input type="text" id="wine-name" name="wine-name" value="{{wine_name}}"/>
+      </div>
+      <div class="pt-3">
+          <label for="type-select">Type of Wine:</label>
+          <select name="wine-type" id="wine-type" value="{{wine_type}}">
+              <option value="">--Please choose an option--</option>
+              <option value="red">Red</option>
+              <option value="white">White</option>
+              <option value="rose">Rose</option>
+              <option value="sparkling">Sparkling</option>
+          </select>
+      </div>
+      <div class="pt-3">
+          <label for="vintage">Vintage:</label>
+          <input type="text" id="wine-vintage" name="wine-vintage" value="{{wine_vintage}}"/>
+      </div>
+      <div class="pt-3">
+          <label for="source">Source:</label>
+          <input type="text" id="wine-source" name="wine-source" value="{{wine_source}}"/>
+      </div>
+      <div class="pt-3">
+          <label for="notes">Notes:</label>
+          <input type="text" id="wine-notes" name="wine-notes" value="{{wine_notes}}"/>
     </div>
-    <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit">Save</button>
+    <button type="button" class="delete-post-btn">Delete Wine</button>
   </form>
 </article>
 
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form> --}}
-
-{{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+{{!-- <script src="/javascript/delete-post.js"></script> --}}

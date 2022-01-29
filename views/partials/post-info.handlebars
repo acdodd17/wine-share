@@ -1,26 +1,37 @@
+
+
 <div class="card mb-4 p-2" id="new-wine">
+    
     {{!-- <div class="image">
         <img src={{img_url}} class="card-img-top" alt="picture of" + {{wine_name}}>
     </div> --}}
     <div class="wine-name p-3">
-        <h4 class="card-title title">{{wine_name}}</h4>
+        <a href="/post/{{id}}"> <h4 class="card-title title">{{wine_name}}</h4></a> 
     </div>
     <div class="card-body">
-        
-            <div class="wine-info">
-                <p class="card-text">{{wine_type}}</p>
-                <p class="card-text">{{wine_vintage}}</p>
-                <p class="card-text">{{wine_source}}</p>
+        <div class="row">
+            <div class="wine-data col">
+                <div class="wine-info">
+                    <p class="card-text">{{wine_type}}</p>
+                    <p class="card-text">{{wine_vintage}}</p>
+                    <p class="card-text">{{wine_source}}</p>
+                </div>
+                <div class="wine-notes mb-2">
+                    <p class="card-text mx-2">{{wine_notes}}</p>
+                </div>
             </div>
-            <div class="wine-notes mb-2">
-                <p class="card-text mx-2">{{wine_notes}}</p>
-            </div>
-            <div class="meta">
-                    {{wine_count}} {{format_plural "bottle" wine_count}}
-            </div>
-            <button type="button" class="upcount-btn">Add bottle</button>
+                <div class="wine-img col me-2">
+                    <img src="" alt="image of {{wine_name}}"> </a>
+                </div>
+        </div>
+        <div class="meta">
+                {{wine_count}} {{format_plural "bottle" wine_count}}
+        </div>
         
     </div>
+
 </div>
 
-<script src="/javascript/upcount.js"></script>
+        
+
+
