@@ -9,21 +9,14 @@
           <form class="edit-wine-form d-flex flex-column align-items-center justify-content-center">
             <div class="row d-flex align-items-center">
               <div class="title d-flex justify-content-center">
-                <input name="wine-name" class="pt-2 m-2 justify-content-center" type="text" placeholder="{{post.wine_name}}" />
+                <p>{{post.wine_name}}</p>
               </div>
               <div class="wine-data col d-flex justify-content-center">
-                <select name="wine-type" class="pt-2 m-2 justify-content-center" id="wine-type" aria-placeholder="{{post.wine_type}}">
-                  <option value="">--Please choose an option--</option>
-                  <option value="red">Red</option>
-                  <option value="white">White</option>
-                  <option value="rose">Rose</option>
-                  <option value="sparkling">Sparkling</option>
-                </select>
-                <input type="text" class="pt-2 m-2 justify-content-center" id="wine-vintage" name="wine-vintage" placeholder="{{post.wine_vintage}}"/>
+                <p>{{post.wine-type}}</p>
+                <p>{{post.wine_vintage}}</p>
               </div>
               <div class="d-flex justify-content-center">
-                <input type="text" class="pt-2 m-2" id="wine-source" name="wine-source" placeholder="{{post.wine_source}}"/>
-               
+                <p>{{post.wine_source}}</p>               
               </div>
               <div class="d-flex justify-content-center">
                  <input type="text" class="pt-2 m-2 " id="wine-notes" name="wine-notes" placeholder="{{post.wine_notes}}"/>
