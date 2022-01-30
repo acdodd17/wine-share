@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'wine_vintage',
       'wine_source',
       'wine_notes',
-      'wine-count'
+      'wine_count'
     ],
     include: [
       {
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
       'wine_vintage',
       'wine_source',
       'wine_notes',
-      'wine-count'
+      'wine_count'
     ],
     include: [
       {
