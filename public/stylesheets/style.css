@@ -14,7 +14,10 @@ body {
 a {
     color: white;
     text-decoration: none;
-    
+}
+
+.meta {
+    font-size: 24px;
 }
 
 a:hover { 
@@ -109,7 +112,7 @@ input {
 
 .wine-info p {
     padding: 0px;
-    font-size: 20px;
+    font-size: 36px;
 }
 
 .wine-notes {
@@ -144,7 +147,7 @@ input {
 .wine-name h4 {
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 36px;
 }
 
 .new-wine-form {
