@@ -25,28 +25,28 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // upload file function
-function uploadFile (path, file) {
-    // Get a reference to the storage service, which is used to create references in your storage bucket
-    console.log(file.originalname);
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-    var filesRef = storageRef.child(`${path}/${file.originalname}`);
-    var metadata = {
-        contentType: 'image/jpg'
-    }
-    // upload file method
-    return filesRef.put(file.buffer, metadata).then((snapshot) => {
-        console.log("Uploaded a file!")
-    })
-}
+// function uploadFile (path, file) {
+//     // Get a reference to the storage service, which is used to create references in your storage bucket
+//     console.log(file.originalname);
+//     var storage = firebase.storage();
+//     var storageRef = storage.ref();
+//     var filesRef = storageRef.child(`${path}/${file.originalname}`);
+//     var metadata = {
+//         contentType: 'image/jpg'
+//     }
+//     // upload file method
+//     return filesRef.put(file.buffer, metadata).then((snapshot) => {
+//         console.log("Uploaded a file!")
+//     })
+// }
 
-// connecting to router to respond to post request with upload id
-router.post('/:id',  upload.single('file'), (req, res) => {
-    console.log(req.file);
-    uploadFile(req.params.id, req.file).then((result) => {
-        res.send(result);
-    })
-});
+// // connecting to router to respond to post request with upload id
+// router.post('/:id',  upload.single('file'), (req, res) => {
+//     console.log(req.file);
+//     uploadFile(req.params.id, req.file).then((result) => {
+//         res.send(result);
+//     })
+// });
 
-module.exports = router;
+// module.exports = router;
 

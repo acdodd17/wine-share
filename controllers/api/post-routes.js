@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Count } = require('../../models');
+const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -83,19 +83,19 @@ router.post('/', withAuth, (req, res) => {
   });
 });
 
-// add to bottle count
-router.put('/quantity', withAuth, (req, res) => {
-  // custom static method created in models/Post.js
-  console.log(req.body);
-  Post.upcount({ ...req.body, user_id: req.session.user_id }, { Count, User })
-    .then(updatedCountData => { 
-      console.log(updatedCountData);
-      res.json(updatedCountData)})
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// // add to bottle count
+// router.put('/quantity', withAuth, (req, res) => {
+//   // custom static method created in models/Post.js
+//   console.log(req.body);
+//   Post.upcount({ ...req.body, user_id: req.session.user_id }, { Count, User })
+//     .then(updatedCountData => { 
+//       console.log(updatedCountData);
+//       res.json(updatedCountData)})
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 
 
@@ -131,24 +131,24 @@ router.put('/:id', withAuth, (req, res) => {
 
 // Delete a Post 
 router.delete('/:id', (req, res) => {
-    Post.destroy({
-      where: {
-        id: req.params.id
+  Post.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
       }
+      res.json(dbPostData);
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(dbPostData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
   
-  module.exports = router;
+module.exports = router;
 
   
